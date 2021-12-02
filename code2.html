@@ -1,0 +1,54 @@
+<script>
+    var student_name = "john";
+    var student_gpa = 3.5;
+
+    //object notation
+    var student2 = {
+        //pair of information:value
+        name :"john",
+        gpa : 3.5,
+        major:"finance"
+    };
+    console.log(student2);
+    console.log(student2.name);
+    var student3 = {
+        //pair of information:value
+        name :"kathy",
+        gpa : 3,
+        major:"act"
+    };
+    console.log(student3);
+    console.log(student3.name);
+    var students = [student2,student3];
+    students.push( {name:"aimmy",gpa:4, major:"computer"},{name:"lucy",gpa:2.5, major:"computer"});
+    console.log(students);
+
+    //aggresion operations for the collection of objects
+    console.log(`there are ${students.length} students`);
+    var totalGpa = 0;
+    for(var s of students){
+        totalGpa += s.gpa;
+    }
+    console.log(`total gpa is  ${totalGpa}`);
+    console.log(`average gpa is  ${totalGpa/students.length}`);
+
+    var highestGpa = 0;
+    var candidate = null; //canidate is assign to no one
+    for(var s of students){
+        if(s.gpa > highestGpa){
+            highestGpa = s.gpa;
+            candidate = s;
+        }
+    }
+    console.log(`student with the higest gpa is ${candidate.name} with gpa = ${candidate.gpa}`);
+
+    var lowestGpa = 10;
+    var candidate = null; //canidate is assign to no one
+    for(var s of students){
+        if(s.gpa < lowestGpa){
+            lowestGpa = s.gpa;
+            candidate = s;
+        }
+    }
+    console.log(`student with the lowest gpa is ${candidate.name} with gpa = ${candidate.gpa}`);
+</script>

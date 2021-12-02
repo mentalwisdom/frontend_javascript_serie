@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <table class="table table-striped" id="table1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>qty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>p1</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>p2</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>p3</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <label class="mx-2">id</label>
+    <input id="txtId" type="text" class="form-control mx-2">
+    <label class="mx-2">name</label>
+    <input id="txtName" type="text" class="form-control mx-2">
+    <label class="mx-2">qty</label>
+    <input id="txtQty" type="text" class="form-control mx-2">
+    <button id="btnAdd" class="btn btn-outline-primary mx-2 my-2">add</button>
+
+
+</body>
+
+</html>
+<script>
+     
+ 
+    //in jquery framework,you can easily select any ui component by referencing
+    //to their id or name or class
+    $('#btnAdd').click(cb1);
+    function cb1(){
+         var id = Number($('#txtId').val());
+         var name = $('#txtName').val();
+         var qty = Number($('#txtQty').val());
+         var newProduct = {
+            id,
+            name,
+            qty
+         };
+         //static text of html tag
+         var newRow =   tr(
+               td(newProduct.id) + 
+               td(newProduct.name)+
+               td(newProduct.qty)
+            );
+         //convert the static text into active html tag
+         $(newRow).appendTo('#table1');   
+
+          
+    }//ef
+
+    function tr(t){
+        return '<tr>' + t + '</tr>';
+    }//ef
+
+    function td(t){
+        return '<td>' + t + '</td>';
+    }//ef
+</script>

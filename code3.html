@@ -1,0 +1,106 @@
+<script>
+     function sort1(o1,o2){
+        //case1
+        if(o1 >o2) return 1; //please swith their places
+        //case2
+        if(o1 == o2) return 0; //just do nothing 
+        //case3
+        else return -1;
+    }//ef
+
+    function sort2(o1,o2){
+        //case1
+        if(o1 <o2) return 1; //please swith their places
+        //case2
+        if(o1 == o2) return 0; //just do nothing 
+        //case3
+        else return -1;
+    }//ef
+    var set1 = [30,10,40,20,150,100];
+    var set2 = set1.sort(sort1);
+    console.log(set2);
+    var set3 = set1.sort(sort2);
+    console.log(set3);
+
+    var set4 = [
+        {id:1,name:"p1",qty:10,price:200},
+        {id:2,name:"p2",qty:20,price:100},
+        {id:3,name:"p3",qty:0,price:400},
+    ];
+
+    function cb1(o1,o2){
+        //case1
+        if(o1.price <o2.price) return 1; //please swith their places
+        //case2
+        if(o1 == o2) return 0; //just do nothing 
+        //case3
+        else return -1;
+
+    }//ef
+    var set5 = set4.sort(cb1);
+    console.log(set5);
+
+        // {id:1,name:"p1",qty:10,price:200},
+        // {id:2,name:"p2",qty:20,price:100},
+        // {id:3,name:"p3",qty:0,price:400},
+    //filtering operation
+    function filter1(o){
+        // if(o.qty ==0) return true;
+        // else return false;
+        return o.qty==0;
+    }
+    var set6 = set4.filter(filter1);
+    console.log(set6);
+
+    function filter2(o){
+        // if(o.qty ==0) return true;
+        // else return false;
+        return o.qty>0 && o.price>100;
+    }
+    var set7 = set4.filter(filter2);
+    console.log(set7);
+
+    function map1(o){
+        return {
+            productName:o.name,
+            productPrice:o.price,
+            total:o.qty*o.price
+        };
+    }
+
+    var set8 = set7.map(map1);
+    console.log("set8",set8);
+
+    var set10 = [
+        {id:1,name:"john",gpa:3.5,major:"act"},
+        {id:2,name:"aimmy",gpa:2.5,major:"act"},
+        {id:3,name:"kathy",gpa:4.0,major:"fin"},
+        {id:4,name:"lucy",gpa:2.5,major:"fin"}
+    ];
+    //in sequence, we like to see the filter + sort by gpa + and output only name and gpa
+    function _f1(o){
+        return o.gpa > 3.0;
+    }
+    function _s1(o1,o2){
+        if(o1.gpa < o2.gpa) return 1;
+        else if(o1.gpa == o2.gpa) return 0;
+        else return -1;
+    }
+    function _m1(o1){
+        return {
+            studentName :o1.name,
+            studentGpa : o1.gpa
+        }
+    }
+
+    var set11 = set10
+         .filter(_f1)
+         .sort(_s1)
+         .map(_m1);
+
+    console.log(set11);
+    
+
+    
+
+</script>

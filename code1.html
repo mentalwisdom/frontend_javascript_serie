@@ -1,0 +1,73 @@
+<script>
+    console.log("hello ");
+    //store a text number
+    var x = "message1";
+    x = 10;
+    console.log(x);
+    var x1 = 10; var x2 = 20;
+    var x3 = x1+x2;
+    console.log(x3);
+
+    // c/5 = (f-32)/9
+    var f = 100;
+    var c= 5*(f-32)/9;
+    console.log(c);
+    f= (c*9/5 +32);
+    console.log(f);
+    //data flow control statement for making decision
+    //to make decision, it requires a condition
+    if (c <=30) {
+        console.log("the weather is good");
+    }
+    //other way out with conditions
+    else if ( c>30 && c<= 35) {
+        console.log("the weather is not that bad");
+    }
+    else {
+        console.log("the weater is not good");
+    }
+
+    //data collection/list/array/basket/data serie
+    var set1 = [10,20,30,40];
+    console.log(set1.length);
+    var set2 = ["apple","orange","peach"];
+    console.log(set2.length);
+
+    //perform looping to print out each element of set2
+    //non enhance loop syntax
+    for (var i =0 ;  i< set2.length; i++ ) {
+        console.log(set2[i]);
+    }//end loop
+    //enhance loop syntax
+    for (var f of set2 ) {
+        console.log(f);
+    }//end loop
+
+    //perform aggresion operations to find total avg, max min
+    var total = 0;
+    for (var element of set1 ) {
+         total += element;
+    }//end loop
+    console.log("total value is ="+ total);
+    console.log(`total value is = ${total}  `);
+
+    var avg = total/set1.length;
+    console.log(avg);
+    //var set1 = [10,20,30,40];
+    var highestValue = 0; //camel case naming convention
+    for(var v of set1){
+        if(v >highestValue){
+            highestValue = v;
+        }
+    }
+    console.log(`the highest value from set1 is ${highestValue}`);
+
+    var lowestValue = 1000; //camel case naming convention
+    for(var v of set1){
+        if(v < lowestValue){
+            lowestValue = v;
+        }
+    }
+    console.log(`the lowest value from set1 is ${lowestValue}`);    
+
+</script>
